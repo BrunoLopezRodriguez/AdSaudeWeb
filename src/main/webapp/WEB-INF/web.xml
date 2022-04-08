@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>ADSaudeWeb</display-name>
+	<welcome-file-list>
+
+		<welcome-file>index.jsp</welcome-file>
+
+	</welcome-file-list>
+	  <servlet>
+		<servlet-name>AsistidoServlet</servlet-name>
+		<servlet-class>com.bruno.adsaude.web.controller.AsistidoServlet</servlet-class>
+	</servlet> 
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	
+	<filter>
+  	<filter-name>RequestLogFilter</filter-name>
+  	<filter-class>com.bruno.adsaude.web.filter.RequestLogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>RequestLogFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--  
+	<filter>
+  	<filter-name>KeepAuthenticatedFilter</filter-name>
+  	<filter-class>com.bruno.adsaude.web.filter.KeepAuthenticatedFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>KeepAuthenticatedFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+	-->
+	<filter>
+	<filter-name>AutentificationFilter</filter-name>
+	<filter-class>com.bruno.adsaude.web.filter.AuthenticationFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>AutentificationFilter</filter-name>
+	<url-pattern>/private/*</url-pattern>
+	</filter-mapping>
+	 
+</web-app>
