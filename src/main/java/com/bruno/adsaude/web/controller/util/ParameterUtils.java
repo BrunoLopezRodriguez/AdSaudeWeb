@@ -15,7 +15,23 @@ public class ParameterUtils {
 	public static final String getValue(HttpServletRequest request, String parameterName) {
 		return URLDecoder.decode(request.getParameter(parameterName));
 	}
-	
+
+
+	public static final String getURLPaginacion(String uri, Map<String, String[]> parameters) {
+		StringBuilder sb = new StringBuilder(uri);
+		if (parameters.size()>0) {
+			sb.append("?");
+		}
+		String[] pvalues = null;
+		for (String pname: parameters.keySet()) {
+			pvalues = parameters.get(pname);
+			for (String pvalue: pvalues) {
+				sb.append(URLEncoder.encode(pname)).append("=").append(URLEncoder.encode(pvalue)).append("&");
+			}
+		}
+		return sb.toString();
+	}
+
 	
 	public static final String getURL(String uri, Map<String, String> parameters) {
 		StringBuilder sb = new StringBuilder(uri);
@@ -36,6 +52,24 @@ public class ParameterUtils {
 			return parameterValue.trim();
 		}
 	}
+	
+
+	public static final String print(Long parameterValue) {
+		if (parameterValue ==null) {
+			return Strings.EMPTY;
+		} else {
+			return Long.toString(parameterValue);
+		}
+	}
+	
+	public static final String print(Double parameterValue) {
+		if (parameterValue ==null) {
+			return Strings.EMPTY;
+		} else {
+			return Double.toString(parameterValue);
+		}
+	}
+	
 	
 	
 

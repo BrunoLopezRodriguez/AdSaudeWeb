@@ -6,7 +6,7 @@
 
 	<div class="col-md-12">
 	
-	<img src="/ADSaudeWeb/css/img/tipo-servicio<%=tipoServicio.getId()%>.png" alt="Imagen del tipo de servicio" width="500" height="600">
+	<img src="/ADSaudeWeb/css/img/tipo-servicio<%=tipoServicio.getId()%>.jpg" alt="Imagen del tipo de servicio" width="400" height="300">
 	
 	<table>
 	 	<tr>

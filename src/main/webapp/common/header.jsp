@@ -31,7 +31,7 @@
 
 <title>AdSaude - Tu aplicación de ayuda social</title>
 
-<%@ page import="com.bruno.adsaude.model.*, com.bruno.adsaude.web.controller.*, com.bruno.adsaude.web.controller.util.*, java.util.List"%>
+<%@ page import="com.bruno.adsaude.model.*, com.bruno.adsaude.web.controller.*, com.bruno.adsaude.web.controller.util.*, java.util.*"%>
 </head>
 <body>
 

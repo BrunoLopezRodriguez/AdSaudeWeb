@@ -17,6 +17,7 @@ import com.bruno.adsaude.service.impl.IncidenciaServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.ParameterNames;
+import com.bruno.adsaude.web.controller.util.TipoUsuario;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class IncidenciaCreateAction extends Action{
@@ -56,7 +57,7 @@ public final String doIt(HttpServletRequest request, HttpServletResponse respons
 
 		if(!StringUtils.isBlank(tipoIncidenciaStr)) {
 			tipoIncidencia= Integer.valueOf(tipoIncidenciaStr);	
-			incidencia.setIdTipoEstadoIncidencia(tipoIncidencia);
+			incidencia.setIdTipoIncidencia(tipoIncidencia);
 		}else {
 			errors.addParameterError(ParameterNames.TIPO_INCIDENCIA, "El parametro no coincide");
 		}
@@ -72,12 +73,12 @@ public final String doIt(HttpServletRequest request, HttpServletResponse respons
 		}else {
 			errors.addParameterError(ParameterNames.DESCRPCION, "El parametro no coincide");
 		}
-		if (tipo==20||tipo==10) {
+		if (tipo==TipoUsuario.ASISTIDO||tipo==TipoUsuario.ASISTIDO_DTO) {
 			incidencia.setIdAsistido(usuario.getId());
 			incidencia.setIdAsistidoAfectado(usuario.getId());
-		} else if(tipo==30||tipo==40) {
+		} else if(tipo==TipoUsuario.EMPLEADO||tipo==TipoUsuario.EMPLEADO_DTO) {
 			incidencia.setIdEmpleado(usuario.getId());
-		} else if(tipo==50||tipo==60) {
+		} else if(tipo==TipoUsuario.FAMILIAR||tipo==TipoUsuario.FAMILIAR_DTO) {
 			incidencia.setIdFamiliar(usuario.getId());
 		}
 		

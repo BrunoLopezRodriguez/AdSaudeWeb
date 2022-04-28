@@ -37,4 +37,5 @@ public class ParameterNames {
 	public static final String DNI_FAMILIAR = "dni-familiar";
 	public static final String ID_HIJA = "id-hija";
 	public static final String TIPO_ASISTENCIA = "tipoAsistencia";
+	public static final String KEEP_AUTHENTICATED = "keepAutenticated";
 }

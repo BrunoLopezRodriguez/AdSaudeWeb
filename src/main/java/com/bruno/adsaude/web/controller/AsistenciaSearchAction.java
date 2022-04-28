@@ -19,6 +19,7 @@ import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.ErrorNames;
 import com.bruno.adsaude.web.controller.util.ParameterNames;
+import com.bruno.adsaude.web.controller.util.TipoUsuario;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 import com.bruno.adsaude.web.controller.util.WebPagingUtils;
 
@@ -67,18 +68,12 @@ public class AsistenciaSearchAction extends Action{
 		}
 		if (!StringUtils.isBlank(asistidoIdStr)) {
 			asistidoId=Integer.valueOf(asistidoIdStr);
-		}else {
-			asistidoId=Integer.valueOf(null);
 		}
 		if (!StringUtils.isBlank(asistenciaIdStr)) {
 			asistenciaId=Integer.valueOf(asistenciaIdStr);
-		}else {
-			asistenciaId=Integer.valueOf(null);
 		}
 		if(!StringUtils.isBlank(empleadoIdStr)) {
 			 empleadoId=Integer.valueOf(empleadoIdStr);
-		}else {
-			empleadoId=Integer.valueOf(null);
 		}
 			 
 		AsistenciaCriteria c = new AsistenciaCriteria();
@@ -86,12 +81,12 @@ public class AsistenciaSearchAction extends Action{
 		c.setFechaHoraInicio(fechaDesde);
 		c.setFechaHoraFin(fechaHasta);
 		
-		if(tipo==20||tipo==10) {
+		if(tipo==TipoUsuario.ASISTIDO||tipo==TipoUsuario.ASISTIDO_DTO) {
 			c.setIdAsistido(usuario.getId());
 		}else {
 			c.setIdAsistido(asistidoId);
 		}
-		if(tipo==30||tipo==40) {
+		if(tipo==TipoUsuario.EMPLEADO||tipo==TipoUsuario.EMPLEADO_DTO) {
 			c.setIdAsistido(usuario.getId());
 		}else {
 			c.setIdEmpleado(empleadoId);

@@ -24,7 +24,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                          <input type="submit" value="<%=ActionNames.LOGINFAMILIAR%>" class="btn btn-secondary py-3 px-4">
+                                    <label><input name="<%=ParameterNames.KEEP_AUTHENTICATED%>" value="true" type="checkbox" id="recuerdame" class="search3_extras_cb">Mantener sesion iniciada</label>
+                          <input type="submit" value="Login" class="btn btn-secondary py-3 px-4">
                         </div>
                                 </div>
                         </div>

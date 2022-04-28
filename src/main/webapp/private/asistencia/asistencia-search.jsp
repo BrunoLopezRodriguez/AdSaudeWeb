@@ -67,7 +67,7 @@ function buscarEmpleadoSearchAsistenciaAjax() {
 										<div class="col-md-6">
 											<div class="form-group">
 					              <select class="form-control" id="asistidoSelect" name="<%=ParameterNames.ASISTIDO_ID%>" >
-					              <option>Seleciona el Asistido</option>
+					              <option value="">Seleciona el Asistido</option>
 					              </select>
 					            </div>
 										</div>
@@ -75,7 +75,7 @@ function buscarEmpleadoSearchAsistenciaAjax() {
 										<div class="col-md-6">
 											<div class="form-group">
 					              <select class="form-control" id="tipoServicioHija" name="<%=ParameterNames.ASISTENCIA_ID%>" onchange="buscarEmpleadoSearchAsistenciaAjax()">
-					              	<option>Seleciona el tipo de asistencia</option>
+					              	<option value="">Seleciona el tipo de asistencia</option>
 					              </select>
 					            </div>
 										</div>
@@ -83,7 +83,7 @@ function buscarEmpleadoSearchAsistenciaAjax() {
 										<div class="col-md-6">
 											<div class="form-group">
 					              <select class="form-control" id="empleadoSelect" name="<%=ParameterNames.EMPLEADO_ID%>" >
-					              <option>Selecione el tipo de asistencia primero</option>
+					              <option value="">Selecione el tipo de asistencia primero</option>
 					              </select>
 					            </div>
 										</div>

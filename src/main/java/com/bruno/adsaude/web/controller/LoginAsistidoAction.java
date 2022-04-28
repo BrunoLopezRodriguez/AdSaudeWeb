@@ -3,6 +3,7 @@ package com.bruno.adsaude.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,8 +13,10 @@ import com.bruno.adsaude.service.AsistidoService;
 import com.bruno.adsaude.service.impl.AsistidoServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
+import com.bruno.adsaude.web.controller.util.CookieManager;
 import com.bruno.adsaude.web.controller.util.ErrorNames;
 import com.bruno.adsaude.web.controller.util.ParameterNames;
+import com.bruno.adsaude.web.controller.util.TipoUsuario;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class LoginAsistidoAction extends Action {
@@ -28,7 +31,7 @@ public class LoginAsistidoAction extends Action {
 	}
 
 	public final String doIt(HttpServletRequest request, HttpServletResponse response) {
-
+		String keepAuthenticatedStr = request.getParameter(ParameterNames.KEEP_AUTHENTICATED);
 		String emailStr = request.getParameter(ParameterNames.EMAIL);
 		String passWordStr = request.getParameter(ParameterNames.PASSWORD);
 		Errors errors = new Errors();
@@ -39,9 +42,17 @@ public class LoginAsistidoAction extends Action {
 			UsuarioDTO usuario=asistidoService.login(emailStr, passWordStr);
 			
 			if(usuario!=null) {
-			
 			//UsuarioDTO usuario = usuarioService.login(emailStr, passWordStr);
 			SessionManager.set(request, AttributeNames.USUARIO, usuario);
+			
+			if (!StringUtils.isBlank(keepAuthenticatedStr)) {						
+				//TODO Falta verificar la ip...
+				CookieManager.setValue(response, AttributeNames.USUARIO, emailStr, 30*24*60*60); // Agujero! Comprobar ip
+				CookieManager.setValue(response, AttributeNames.TIPO_USUARIO, TipoUsuario.ASISTIDO_COOKIE, 30*24*60*60); // Agujero! Comprobar ip
+			} else {
+				CookieManager.setValue(response, AttributeNames.USUARIO, emailStr, 0); // Agujero! Comprobar ip
+				CookieManager.setValue(response, AttributeNames.USUARIO, TipoUsuario.ASISTIDO_COOKIE, 0); // Agujero! Comprobar ip
+			}
 			return ViewPaths.HOME;
 			}else {
 				return ViewPaths.USUARIO_LOGIN;

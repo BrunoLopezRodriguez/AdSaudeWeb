@@ -6,6 +6,7 @@ public class AttributeNames {
 	public static final String LOCALE = "locale";
 	
 	public static final String ASISTENCIA = "asistencia";
+	public static final String TIPO_USUARIO = "tipoUsuario";
 	public static final String CONTRATO = "contrato";
 	public static final String ASISTENCIA_RESULTS = "asistencia-results";
 	public static final String ASISTIDO = "asistido";

@@ -35,7 +35,7 @@ function buscarTipoIncidenciaAjax() {
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-					              <select name="<%=ParameterNames.TIPO_INCIDENCIA%>" class="form-control" id="tipoIncidencia" form="carform">
+					              <select name="<%=ParameterNames.TIPO_INCIDENCIA%>" class="form-control" id="tipoIncidencia">
 					              
 					              </select>
 					            </div>

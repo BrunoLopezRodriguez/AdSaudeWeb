@@ -29,6 +29,7 @@ import com.bruno.adsaude.service.impl.MedicoServiceImpl;
 import com.bruno.adsaude.web.controller.SessionManager;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.CookieManager;
+import com.bruno.adsaude.web.controller.util.TipoUsuario;
 
 
 /**
@@ -58,22 +59,23 @@ public class KeepAuthenticatedFilter extends HttpFilter implements Filter {
     	if (usuario==null) {
     		// No esta autenticado, miro la cookie
     		String email = CookieManager.getValue(httpRequest, AttributeNames.USUARIO);
-    		if (!StringUtils.isBlank(email)) {
+    		String tipo = CookieManager.getValue(httpRequest, AttributeNames.TIPO_USUARIO);
+    		if (!StringUtils.isBlank(email)&&!StringUtils.isBlank(tipo)) {
     			// Tenemos cookie de usuario (RECORDAR QUE ESTO ES UN AGUJERO DE SEGURIDAD)
     			try {
-    				if(email=="a") {
+    				if(tipo.equalsIgnoreCase(TipoUsuario.ASISTIDO_COOKIE)) {
     					usuario = (UsuarioDTO) asistidoService.findByEmail(email);
         				SessionManager.set(httpRequest, AttributeNames.USUARIO, usuario);
     				}
-    				else if(email=="b") {
+    				else if(tipo.equalsIgnoreCase(TipoUsuario.EMPLEADO_COOKIE)) {
     					usuario = (UsuarioDTO) empleadoService.findByEmail(email);
         				SessionManager.set(httpRequest, AttributeNames.USUARIO, usuario);
     				}
-    				else if(email=="c") {
+    				else if(tipo.equalsIgnoreCase(TipoUsuario.MEDICO_COOKIE)) {
     					usuario = (UsuarioDTO) medicoService.findByEmail(email);
         				SessionManager.set(httpRequest, AttributeNames.USUARIO, usuario);
     				}
-    				else if(email=="d") {
+    				else if(tipo.equalsIgnoreCase(TipoUsuario.FAMILIAR_COOKIE)) {
     					usuario = (UsuarioDTO) familiarService.findByEmail(email);
         				SessionManager.set(httpRequest, AttributeNames.USUARIO, usuario);
     				}
