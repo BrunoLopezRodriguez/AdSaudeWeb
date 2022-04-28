@@ -18,7 +18,7 @@ public class CommandManager {
 	private static Logger logger = LogManager.getLogger(CommandManager.class);
 	private Map<String, Action> actionsByName = null;
 
-	private List<Action> actions = null;
+	// private List<Action> actions = null;
 	
 	
 	private static CommandManager instance = null;
@@ -37,7 +37,7 @@ public class CommandManager {
 		
 		// En una app web no tiene mucho sentido, ... por tamaño, por undoable ...
 		// Las registro para explicar como se haria
-		actions = new ArrayList<Action>();
+		//actions = new ArrayList<Action>();
 	}
 	
 	public void doAction(HttpServletRequest request, HttpServletResponse response) {
@@ -58,7 +58,7 @@ public class CommandManager {
 		}
 		
 		// Registro el comando
-		actions.add(action);
+		// actions.add(action);
 		
 		// Ejecuta el comando
 		action.doAction(request, response);

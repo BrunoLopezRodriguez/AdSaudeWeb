@@ -20,6 +20,7 @@ public class CookieManager {
 	
 	public static final void setValue(HttpServletResponse response, String name, String value, int ttl) {
 		Cookie cookie = new Cookie(name, value); 
+		cookie.setPath("/");
 		cookie.setMaxAge(ttl);
 		response.addCookie(cookie);
 	}

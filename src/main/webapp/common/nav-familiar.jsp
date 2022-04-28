@@ -14,13 +14,13 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a href="/ADSaudeWeb/index.jsp" class="nav-link">Inicio</a></li>
-				<li class="nav-item"><a href="/ADSaudeWeb/asistencia/asistencia-search.jsp" class="nav-link">Servicios</a></li>
-				<li class="nav-item"><a href="services.html" class="nav-link">Cheking</a></li>
-				<li class="nav-item"><a href="department.html" class="nav-link">Incidencias</a></li>
-				<li class="nav-item"><a href="gallery.html" class="nav-link">Asistidos</a></li>
-				<li class="nav-item"><a href="/ADSaudeWeb/index.jsp" class="nav-link">Mi Perfil:<%=usuario.getNombre()%></a></li>
-				<li class="nav-item"><a href="/ADSaudeWeb/asistido?action=<%=ActionNames.LOGOUT%>" class="nav-link">LogOut</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>index.jsp" class="nav-link">Inicio</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/servicios/servicios-search.jsp" class="nav-link">Servicios</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/asistencia/asistencia-search.jsp" class="nav-link">Asistencias</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/incidencia.jsp" class="nav-link">Incidencias</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.ASISTIDO_BY_FAM%>" class="nav-link">Asistidos</a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/my-profile.jsp" class="nav-link">Mi Perfil:<%=usuario.getNombre()%></a></li>
+				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.LOGOUT%>" class="nav-link">LogOut</a></li>
 			</ul>
 		</div>
 	</div>

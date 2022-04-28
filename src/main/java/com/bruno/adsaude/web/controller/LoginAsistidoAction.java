@@ -3,16 +3,21 @@ package com.bruno.adsaude.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bruno.adsaude.exception.ServiceException;
 import com.bruno.adsaude.model.UsuarioDTO;
 import com.bruno.adsaude.service.AsistidoService;
 import com.bruno.adsaude.service.impl.AsistidoServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
+import com.bruno.adsaude.web.controller.util.ErrorNames;
 import com.bruno.adsaude.web.controller.util.ParameterNames;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class LoginAsistidoAction extends Action {
+	private static Logger logger = LogManager.getLogger(LoginAsistidoAction.class);
 	private AsistidoService asistidoService=null;
 	//private UsuarioService usuarioService = null;
 	
@@ -26,6 +31,8 @@ public class LoginAsistidoAction extends Action {
 
 		String emailStr = request.getParameter(ParameterNames.EMAIL);
 		String passWordStr = request.getParameter(ParameterNames.PASSWORD);
+		Errors errors = new Errors();
+		request.setAttribute(AttributeNames.ERRORS , errors);
 
 
 		try {
@@ -41,13 +48,15 @@ public class LoginAsistidoAction extends Action {
 			}
 		} catch (ServiceException se) {
 			// TODO
-			se.printStackTrace();
+			errors.addCommonError(ErrorNames.ERR_GENERIC);
+			logger.error(se.getMessage(), se);
 			return ViewPaths.USUARIO_LOGIN;
 			
 			
 		} catch (Exception e) {
 			// TODO
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
+			errors.addCommonError(ErrorNames.ERR_GENERIC);
 			return ViewPaths.USUARIO_LOGIN;
 		}		
 	}

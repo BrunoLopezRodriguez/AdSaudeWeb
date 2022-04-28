@@ -3,20 +3,18 @@ package com.bruno.adsaude.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bruno.adsaude.service.AsistidoService;
-import com.bruno.adsaude.service.impl.AsistidoServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class LogoutAction extends Action {
-	private AsistidoService asistidoService=null;
+	//private AsistidoService asistidoService=null;
 	//private UsuarioService usuarioService = null;
 	
 	public LogoutAction() {
 		super(ActionNames.LOGOUT);
 		//usuarioService = new UsuarioServiceImpl();
-		asistidoService= new AsistidoServiceImpl();
+		//asistidoService= new AsistidoServiceImpl();
 	}
 
 	public final String doIt(HttpServletRequest request, HttpServletResponse response) {

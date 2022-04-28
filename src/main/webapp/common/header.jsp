@@ -26,9 +26,12 @@
 <link rel="stylesheet" href="/ADSaudeWeb/css/css/flaticon.css">
 <link rel="stylesheet" href="/ADSaudeWeb/css/css/style.css">
 <meta charset="ISO-8859-1">
+<script src="/ADSaudeWeb/css/js/jquery.min.js"></script>
+
+
 <title>AdSaude - Tu aplicación de ayuda social</title>
 
-<%@ page import="com.bruno.adsaude.model.*, com.bruno.adsaude.web.controller.*, com.bruno.adsaude.web.controller.util.*"%>
+<%@ page import="com.bruno.adsaude.model.*, com.bruno.adsaude.web.controller.*, com.bruno.adsaude.web.controller.util.*, java.util.List"%>
 </head>
 <body>
 
@@ -84,7 +87,7 @@
 		<%@include file="/common/nav-empleado.jsp"%>
 		<% } %>
 		
-		
+		<%@include file="/common/errors.jsp"%>
 		
 		
 		

@@ -3,6 +3,9 @@ package com.bruno.adsaude.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bruno.adsaude.exception.ServiceException;
 import com.bruno.adsaude.model.UsuarioDTO;
 import com.bruno.adsaude.service.FamiliarService;
@@ -13,6 +16,7 @@ import com.bruno.adsaude.web.controller.util.ParameterNames;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class LoginFamiliarAction extends Action {
+	private static Logger logger = LogManager.getLogger(LoginFamiliarAction.class);
 	private FamiliarService familiarService=null;
 	//private UsuarioService usuarioService = null;
 
@@ -23,6 +27,9 @@ public class LoginFamiliarAction extends Action {
 	}
 
 		public final String doIt(HttpServletRequest request, HttpServletResponse response) {
+			
+			Errors errors = new Errors();
+			request.setAttribute(AttributeNames.ERRORS , errors);
 
 			String emailStr = request.getParameter(ParameterNames.EMAIL);
 			String passWordStr = request.getParameter(ParameterNames.PASSWORD);
@@ -41,13 +48,15 @@ public class LoginFamiliarAction extends Action {
 				}
 			} catch (ServiceException se) {
 				// TODO
-				se.printStackTrace();
+				errors.addCommonError("Error Login Familiar");
+				logger.error(se.getMessage(), se);
 				return ViewPaths.USUARIO_FAM_LOGIN;
 				
 				
 			} catch (Exception e) {
 				// TODO
-				e.printStackTrace();
+				errors.addCommonError("Error Login Familiar");
+				logger.error(e.getMessage(), e);
 				return ViewPaths.USUARIO_FAM_LOGIN;
 			}		
 		}

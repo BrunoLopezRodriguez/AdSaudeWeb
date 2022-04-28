@@ -13,14 +13,14 @@
                         <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                         <form method="get" action="/ADSaudeWeb/common/register-asistido.jsp">
+                         <form method="get" action="<%=ControllerPath.MAIN_CONTEXT%>common/register-asistido.jsp">
     						<button type="submit" class="btn btn-secondary py-3 px-4">Soy asistido</button>
 						</form>
                         </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <form method="get" action="/ADSaudeWeb/common/register-familiar.jsp">
+                                    <form method="get" action="<%=ControllerPath.MAIN_CONTEXT%>common/register-familiar.jsp">
     									<button type="submit" class="btn btn-secondary py-3 px-4">Soy familiar</button>
 									</form>
                            </div>

@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.bruno.adsaude.exception.DataException;
 import com.bruno.adsaude.exception.ServiceException;
 import com.bruno.adsaude.model.UsuarioDTO;
 import com.bruno.adsaude.service.AsistidoService;
@@ -28,7 +29,6 @@ import com.bruno.adsaude.service.impl.MedicoServiceImpl;
 import com.bruno.adsaude.web.controller.SessionManager;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.CookieManager;
-import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 
 /**
@@ -81,7 +81,10 @@ public class KeepAuthenticatedFilter extends HttpFilter implements Filter {
     				if (logger.isInfoEnabled()) {
     					logger.info("User "+email+" authenticated form cookie");
     				}
-    			} catch (ServiceException se) {
+    			}
+    			catch(DataException de) {
+    				logger.error("Trying to login by cookie: "+email, de);
+    			}catch (ServiceException se) {
     				logger.error("Trying to login by cookie: "+email, se);
     			}
     		}

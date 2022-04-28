@@ -36,4 +36,5 @@ public class Errors {
 	public boolean hasErrors() {
 		return this.common.size()>0 || this.errorsByParameter.size()>0;
 	}
+	
 }

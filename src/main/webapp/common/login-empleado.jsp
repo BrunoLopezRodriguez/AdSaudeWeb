@@ -9,7 +9,7 @@
                 <div class="col-md-12 bg-primary p-5 heading-section heading-section-white">
                     <span class="subheading">Logueate!</span>
                     <h2 class="mb-4">Login</h2>
-                    <form action="/ADSaudeWeb/asistido" method="post" class="appointment">
+                    <form action="<%=ControllerPath.MAIN_CONTEXT%>asistido" method="post" class="appointment">
                      <input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.LOGINEMPLEADO%>"/>
                         <div class="row justify-content-center">
                                 <div class="col-md-6">

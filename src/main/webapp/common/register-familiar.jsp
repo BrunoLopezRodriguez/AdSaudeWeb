@@ -10,7 +10,7 @@
 		    			<div class="col-md-12 bg-primary p-5 heading-section heading-section-white">
 		    				<span class="subheading">Pide tu Registro</span>
 		    				<h2 class="mb-4">Registro Gratis</h2>
-		    				 <form action="/ADSaudeWeb/asistido" method="post" class="appointment">
+		    				 <form action="<%=ControllerPath.MAIN_CONTEXT%>asistido" method="post" class="appointment">
 		    				<input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.REGISTER_FAMILIAR%>"/>
 		    					<div class="row justify-content-center">
 										<div class="col-md-6">
@@ -38,16 +38,20 @@
 					              <input type="text" class="form-control" name="<%=ParameterNames.NIF%>" placeholder="Nif">
 					            </div>
 										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+					              <select class="form-control" id="localidad" name="<%=ParameterNames.LOCALIDAD%>">
+					              </select>
+					            </div>
+										</div>
+										
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.DIRECCION%>" placeholder="Direccion">
 					            </div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-					              <input type="text" class="form-control" name="<%=ParameterNames.LOCALIDAD%>" placeholder="Localidad">
-					            </div>
-										</div>
+										
 										
 										<div class="col-md-6">
 											<div class="form-group">

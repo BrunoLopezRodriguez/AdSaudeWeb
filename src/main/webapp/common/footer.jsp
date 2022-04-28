@@ -65,7 +65,7 @@
         </div>
       </footer>
 
-  <script src="/ADSaudeWeb/css/js/jquery.min.js"></script>
+  
   <script src="/ADSaudeWeb/css/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="/ADSaudeWeb/css/js/popper.min.js"></script>
   <script src="/ADSaudeWeb/css/js/bootstrap.min.js"></script>

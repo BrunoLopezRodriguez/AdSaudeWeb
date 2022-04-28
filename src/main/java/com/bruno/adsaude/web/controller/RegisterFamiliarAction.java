@@ -3,14 +3,19 @@ package com.bruno.adsaude.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.bruno.adsaude.model.Familiar;
 import com.bruno.adsaude.service.FamiliarService;
 import com.bruno.adsaude.service.impl.FamiliarServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
+import com.bruno.adsaude.web.controller.util.AttributeNames;
 import com.bruno.adsaude.web.controller.util.ParameterNames;
 import com.bruno.adsaude.web.controller.util.ViewPaths;
 
 public class RegisterFamiliarAction extends Action{
+	private static Logger logger = LogManager.getLogger(RegisterFamiliarAction.class);
 
 	private FamiliarService familiarService=null;
 
@@ -20,6 +25,9 @@ public RegisterFamiliarAction() {
 }
 
 public final String doIt(HttpServletRequest request, HttpServletResponse response) {
+	
+	Errors errors = new Errors();
+	request.setAttribute(AttributeNames.ERRORS , errors);
 	Familiar f = new Familiar();
 	
 	String nombreStr = request.getParameter(ParameterNames.NOMBRE);
@@ -55,7 +63,8 @@ public final String doIt(HttpServletRequest request, HttpServletResponse respons
 		
 	} catch (Exception e) {
 		// TODO
-		e.printStackTrace();
+		errors.addCommonError("Error Registro Familiar");
+		logger.error(e.getMessage(), e);
 		return ViewPaths.HOME;
 	}		
 }

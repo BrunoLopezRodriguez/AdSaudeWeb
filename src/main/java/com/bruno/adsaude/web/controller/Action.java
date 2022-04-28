@@ -16,16 +16,20 @@ public abstract class Action {
 	}
 	
 	public final void doAction(HttpServletRequest request, HttpServletResponse response) {
+		Errors errors = new Errors();
 		try {
 			logger.trace("Ejecutando "+getName()+"...");
 			long t0 = System.currentTimeMillis();
 			String targetView = doIt(request, response);
 			long t1 = System.currentTimeMillis();
 			logger.trace(getName()+" ejecutada en "+ (t1-t0)+"ms! ");
-			request.getRequestDispatcher(targetView).forward(request, response);
+			if (targetView!=null) {
+				request.getRequestDispatcher(targetView).forward(request, response);
+			} // else: no requiere seguir por dentro, como por ejemplo en una accion asincrona que retorna un JSON.
 			
 		} catch (Exception e) {
 			// TODO
+			errors.addCommonError("Error en la accion en si");
 			logger.error(request+" "+response, e);
 		}
 	}
