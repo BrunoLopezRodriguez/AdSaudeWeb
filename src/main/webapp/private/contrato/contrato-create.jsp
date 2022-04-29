@@ -1,33 +1,17 @@
 <%@include file="/common/header.jsp" %>
-
-
 <script>
-
 function buscarServiciosHijasAjax() {
-
           var url = '/ADSaudeWeb/asistido';
-
-              $.ajax({
-
-            	
+              $.ajax({            	
                  type: "GET",
-
                  url: url,
-
              data: "action=servicioHijaSearch",
-
              success: function(data) {
-
               for (i = 0; i<data.length; i++) {
-
                             $('#servicioHija').append('<option value="'+data[i].id+'">'+data[i].nombre+'</option>');
-
               }
-
             }
-
           });
-
       }
 </script>
 

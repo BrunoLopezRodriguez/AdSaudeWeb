@@ -16,6 +16,7 @@ import com.bruno.adsaude.service.AsistidoService;
 import com.bruno.adsaude.service.impl.AsistidoServiceImpl;
 import com.bruno.adsaude.web.controller.util.ActionNames;
 import com.bruno.adsaude.web.controller.util.AttributeNames;
+import com.bruno.adsaude.web.controller.util.TipoUsuario;
 import com.google.gson.Gson;
 
 public class AsistidoSearchAsistenciaAction extends Action{
@@ -35,7 +36,11 @@ public class AsistidoSearchAsistenciaAction extends Action{
 			List<AsistidoDTO> asistido = new ArrayList<AsistidoDTO>();
 		try {
 			
+			if(usuario.getTipo()==TipoUsuario.FAMILIAR||usuario.getTipo()==TipoUsuario.FAMILIAR_DTO) {
 			asistido = asistidoService.findByFamiliar(usuario.getId());
+			} else if (usuario.getTipo()==TipoUsuario.MEDICO||usuario.getTipo()==TipoUsuario.MEDICO_DTO) {
+				asistido = asistidoService.findByMedico(usuario.getId());	
+			}
 			String json = gson.toJson(asistido);
 
 			response.setContentType("application/json");

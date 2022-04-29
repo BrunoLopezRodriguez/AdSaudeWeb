@@ -58,26 +58,31 @@ function buscarProvinciaAjax() {
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.NOMBRE%>" placeholder="Tu nombre">
+					              <span><%errors.getParameterError(ParameterNames.NOMBRE);%></span>
 					            </div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.APELLIDO1%>" placeholder="Apellido 1">
+					              <span><%errors.getParameterError(ParameterNames.APELLIDO1);%></span>
 					            </div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.APELLIDO2%>" placeholder="Apellido 2">
+					              <span><%errors.getParameterError(ParameterNames.APELLIDO2);%></span>
 					            </div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.TELEFONO%>" placeholder="Numero de tlf">
+					              <span><%errors.getParameterError(ParameterNames.TELEFONO);%></span>
 					            </div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.NIF%>" placeholder="Nif">
+					              <span><%errors.getParameterError(ParameterNames.NIF);%></span>
 					            </div>
 										</div>
 										<div class="col-md-6">
@@ -102,6 +107,7 @@ function buscarProvinciaAjax() {
 										<div class="col-md-6">
 											<div class="form-group">
 					              <input type="text" class="form-control" name="<%=ParameterNames.DIRECCION%>" placeholder="Direccion">
+					              <span><%errors.getParameterError(ParameterNames.DIRECCION);%></span>
 					            </div>
 										</div>
 										
@@ -110,6 +116,7 @@ function buscarProvinciaAjax() {
 					    					<div class="input-wrap">
 					            	
 					            		<input type="text" class="form-control" name="<%=ParameterNames.EMAIL%>" placeholder="Email">
+					            		<span><%errors.getParameterError(ParameterNames.EMAIL);%></span>
 				            		</div>
 					    				</div>
 										</div>
@@ -118,6 +125,7 @@ function buscarProvinciaAjax() {
 											<div class="form-group">
 					    					<div class="input-wrap">
 					            		<input type="password" class="form-control" name="<%=ParameterNames.PASSWORD%>" placeholder="Password">
+					            		<span><%errors.getParameterError(ParameterNames.PASSWORD);%></span>
 				            		</div>
 					    				</div>
 										</div>

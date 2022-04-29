@@ -22,7 +22,7 @@ function buscarAsistidoSearchAsistenciaAjax() {
        data: "action=asistidoSearchAsistencia",
        success: function(data) {
         for (i = 0; i<data.length; i++) {
-                      $('#asistidoSelect').append('<option value="'+data[i].id+'">'+data[i].nombre+'</option>');
+                      $('#asistidoSelect').append('<option value="'+data[i].id+'">'+data[i].nombre+ ' '+data[i].apellido1+'</option>');
         }
       }
     });
@@ -63,7 +63,7 @@ function buscarEmpleadoSearchAsistenciaAjax() {
 					              <input type="date" class="form-control" name="<%=ParameterNames.FECHA_HASTA%>" placeholder="Fecha hasta">
 					            </div>
 										</div>
-										<%if(usuario.getTipo()!=10||usuario.getTipo()!=20){ %>
+										<%if(usuario.getTipo()!=10&&usuario.getTipo()!=20){ %>
 										<div class="col-md-6">
 											<div class="form-group">
 					              <select class="form-control" id="asistidoSelect" name="<%=ParameterNames.ASISTIDO_ID%>" >

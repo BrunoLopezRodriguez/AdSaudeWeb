@@ -29,4 +29,5 @@ public class ViewPaths {
 	public static final String CONTRATO_RESULTS = "/private/contrato/contrato-results.jsp";
 	public static final String SERVICIO_DETAIL = "/private/servicios/servicio-detail.jsp";
 	public static final String SERVICIO_SEARCH = "/private/servicios/servicio-search.jsp";
+	public static final String RUTA_RESULTS = "/private/ruta/ruta-results.jsp";
 }

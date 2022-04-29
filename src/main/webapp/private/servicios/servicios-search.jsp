@@ -8,7 +8,7 @@ function buscarTipoServicioPadreAjax() {
              data: "action=servicioSearch",
              success: function(data) {
               for (i = 0; i<data.length; i++) {
-               $('#tipoServicioPadre').append('<label><input type="checkbox" id="cbox"'+i+' value="'+data[i].id+'"> '+data[i].nombre+'</label>');
+               $('#tipoServicioPadre').append('<label><input type="checkbox" class="padres" id="cbox"'+i+' value="'+data[i].id+'"> '+data[i].nombre+'</label>');
               }
             }
           });

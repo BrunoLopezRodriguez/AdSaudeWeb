@@ -16,7 +16,6 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>index.jsp" class="nav-link">Inicio</a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/asistencia/asistencia-search.jsp" class="nav-link">Asistencias</a></li>
-				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.ASISTIDO_BY_MED%>" class="nav-link">Asistidos</a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>index.jsp" class="nav-link">Mi Perfil:<%=usuario.getNombre()%></a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.LOGOUT%>" class="nav-link">LogOut</a></li>
 			</ul>

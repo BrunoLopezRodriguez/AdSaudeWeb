@@ -55,6 +55,7 @@ public class LoginAsistidoAction extends Action {
 			}
 			return ViewPaths.HOME;
 			}else {
+				errors.addCommonError("Usuario o contraseña desconocidos");
 				return ViewPaths.USUARIO_LOGIN;
 			}
 		} catch (ServiceException se) {

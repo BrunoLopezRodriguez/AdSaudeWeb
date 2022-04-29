@@ -18,7 +18,6 @@
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/servicios/servicios-search.jsp" class="nav-link">Servicios</a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/asistencia/asistencia-search.jsp" class="nav-link">Asistencias</a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/incidencia.jsp" class="nav-link">Incidencias</a></li>
-				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.ASISTIDO_BY_FAM%>" class="nav-link">Asistidos</a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>private/my-profile.jsp" class="nav-link">Mi Perfil:<%=usuario.getNombre()%></a></li>
 				<li class="nav-item"><a href="<%=ControllerPath.MAIN_CONTEXT%>asistido?action=<%=ActionNames.LOGOUT%>" class="nav-link">LogOut</a></li>
 			</ul>

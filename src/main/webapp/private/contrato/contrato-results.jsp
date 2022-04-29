@@ -8,10 +8,12 @@
 		ContratoDTO contrato = (ContratoDTO) request.getAttribute(AttributeNames.CONTRATO);
 		
 			%>
-			<h2>No tienes un contrato con nosotros deseas crear uno?</h2>
 			
-			<h3><a href="<%=ControllerPath.MAIN_CONTEXT%>private/contrato/contrato-create.jsp">Crea tu contrato</a></h3>
+			<h3>No tienes un contrato con nosotros deseas crear uno?</h3>
+			
+			<h4><a href="<%=ControllerPath.MAIN_CONTEXT%>private/contrato/contrato-create.jsp">Crea tu contrato</a></h4>
 	
+	<%if(contrato!=null){ %>
 	 <table>
 	 	<tr>
 			<td>Fecha inicio</td>
@@ -26,7 +28,7 @@
 			<td><%=contrato.getDescripcionNecesidad()%></td>
 	 </tr>
 	 
-	 
+	 <%} %>
 	
 	 </table>
 	 

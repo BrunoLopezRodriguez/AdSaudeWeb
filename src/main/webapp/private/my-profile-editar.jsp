@@ -11,7 +11,12 @@
 		    				<span class="subheading">Edita tu perfil</span>
 		    				<h2 class="mb-4">Editando</h2>
 		    				 <form action="<%=ControllerPath.MAIN_CONTEXT%>asistido" method="post" class="appointment">
+		    				 <%Integer tipo=usuario.getTipo();
+		    				 	if(tipo==TipoUsuario.ASISTIDO||tipo==TipoUsuario.ASISTIDO_DTO){%>
 		    				<input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.EDITAR_ASISTIDO%>"/>
+		    				<%}else if (tipo==TipoUsuario.FAMILIAR || tipo==TipoUsuario.FAMILIAR_DTO){ %>
+		    				<input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.EDITAR_FAMILIAR%>"/>
+		    				<%} %>
 		    					<div class="row justify-content-center">
 										<div class="col-md-6">
 											<div class="form-group">

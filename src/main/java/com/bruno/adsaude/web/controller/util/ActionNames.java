@@ -7,6 +7,7 @@ public class ActionNames {
 	public static final String INCIDENCIA_SEARCH_C = "incidenciaSearchCreador";
 	public static final String DETAIL = "detail";
 	public static final String EDITAR_ASISTIDO = "editarAsistido";
+	public static final String EDITAR_FAMILIAR = "editarFamiliar";
 	public static final String CREATE = "create";
 	public static final String LOGIN = "loginAsistido";
 	public static final String LOGINFAMILIAR = "loginFamiliar";
@@ -35,4 +36,5 @@ public class ActionNames {
 	public static final String HIJA_BY_PADRE = "hijaByPadre";
 	public static final String ASISTIDO_SEARCH_ASISTENCIA = "asistidoSearchAsistencia";
 	public static final String EMPLEADO_SEARCH_ASISTENCIA = "empleadoSearchAsistencia";
+	public static final String RUTA_BY_EMPLEADO = "rutaByEmpleado";
 }

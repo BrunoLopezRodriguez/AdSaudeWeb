@@ -59,6 +59,7 @@ public class LoginMedicoAction extends Action {
 				}
 				return ViewPaths.HOME;
 			}else {
+				errors.addCommonError("Usuario o contraseña desconocidos");
 				return ViewPaths.USUARIO_MED_LOGIN;
 			}
 		} catch (ServiceException se) {

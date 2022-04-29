@@ -54,6 +54,7 @@ import com.bruno.adsaude.web.controller.util.ViewPaths;
 				}
 				return ViewPaths.HOME;
 				}else {
+					errors.addCommonError("Usuario o contraseña desconocidos");
 					return ViewPaths.USUARIO_EMPL_LOGIN;
 				}
 			} catch (ServiceException se) {

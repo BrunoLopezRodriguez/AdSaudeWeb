@@ -24,7 +24,7 @@
 %>
 </table>
 <!--  Paginador -->
-<ul>
+<ul class="paginador">
 								<%
 									Integer currentPage = (Integer) request.getAttribute(AttributeNames.CURRENT_PAGE);
 								
