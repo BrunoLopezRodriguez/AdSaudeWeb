@@ -29,6 +29,7 @@ function buscarAsistidoSearchAsistenciaAjax() {
 }
 function buscarEmpleadoSearchAsistenciaAjax() {
     var url = '/ADSaudeWeb/asistido';
+    $("#empleadoSelect").empty();
         $.ajax({           	
            type: "GET",
            url: url,

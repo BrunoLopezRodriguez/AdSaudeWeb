@@ -25,7 +25,7 @@ function buscarServiciosHijasAjax() {
 		    				<span class="subheading">Contratacion</span>
 		    				<h2 class="mb-4">Crea tu contrato</h2>
 		    				 <form action="<%=ControllerPath.MAIN_CONTEXT%>asistido" method="post" class="appointment">
-		    				<!--  <input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.CREATE_CONTRATO%>"/>-->
+		    				<input type="hidden" name="<%=ParameterNames.ACTION%>" value="<%=ActionNames.CREATE_CONTRATO%>"/>
 		    					<div class="row justify-content-center">
 										<div class="col-md-6">
 											<div class="form-group">
