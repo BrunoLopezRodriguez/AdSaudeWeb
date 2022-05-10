@@ -83,18 +83,18 @@ public class CreateContratoAction extends Action{
 					contrato.setIdAsistido(usuario.getId());
 					contratos.add(cts);
 					contratoService.create(contrato,contratos);
-					return ViewPaths.CONTRATO_RESULTS;
+					return ViewPaths.CONTRATO_RESULTS_RETURN;
 
 				} else {
 					errors.addCommonError("Hay campos con errores en el formuarlio. Por favor revíselos.");
-					return ViewPaths.CONTRATO_RESULTS;
+					return ViewPaths.CONTRATO_RESULTS_RETURN;
 				}
 
 			} catch (Exception e) {
 				// TODO
 				errors.addCommonError("Error Creacion Asistencia");
 				logger.error(e.getMessage(), e);
-				return ViewPaths.CONTRATO_RESULTS;
+				return ViewPaths.CONTRATO_RESULTS_RETURN;
 			}		
 		}
 
